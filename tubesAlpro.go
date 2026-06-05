@@ -22,24 +22,30 @@ func sortData(arr *arrPerangkat, banyakdata int)
 
 // fungsi untuk menentukan total watt dari keseluruhan perangkat dan menentukan perangkat yang paling boros energi.
 func analysisData(arr arrPerangkat, banyakdata int) {
-	var total int
-	var idxmax int
-
 	if banyakdata == 0 {
-		fmt.Println("Data Kosong! Silakan tambah data terlebih dahulu.")
+		fmt.Println("Tidak ada data untuk dianalisis.")
 		return
 	}
+
+	var total int
+	var maxWatt int = arr[0].watt
 
 	for i := 0; i < banyakdata; i++ {
 		total += arr[i].watt
 
-		if arr[i].watt > arr[idxmax].watt {
-			idxmax = i
+		if arr[i].watt > maxWatt {
+			maxWatt = arr[i].watt
 		}
 	}
-	fmt.Println("Total konsumsi listrik ", total)
-	fmt.Println("Perangkat paling boros energi ", arr[idxmax].perangkat)
-	fmt.Println("Daya Listrik : ", arr[idxmax].watt)
+
+	fmt.Println("Total konsumsi listrik :", total, "Watt")
+	fmt.Println("Perangkat paling boros energi :")
+
+	for i := 0; i < banyakdata; i++ {
+		if arr[i].watt == maxWatt {
+			fmt.Println("-", arr[i].perangkat, "(", arr[i].watt, "Watt di", arr[i].ruangan, ")")
+		}
+	}
 }
 
 func main() {

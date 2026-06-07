@@ -51,7 +51,6 @@ func analysisData(arr arrPerangkat, banyakdata int) {
 func main() {
 	var arr arrPerangkat
 	var banyakdata int
-
 	var pilihan string
 
 	fmt.Println(" ————— Aplikasi Pencatatan Konsumsi Listrik Perangkat (PowerLog) ————— ")
@@ -68,13 +67,7 @@ func main() {
 		fmt.Println("0. Keluar")
 
 		fmt.Print("Pilih menu : ")
-
 		fmt.Scan(&pilihan)
-
-		if banyakdata == 0 && (pilihan == "2" || pilihan == "3" || pilihan == "4" || pilihan == "5" || pilihan == "6" || pilihan == "7") {
-			fmt.Println(" Data masih kosong! Silakan pilih menu 1 untuk menambah data.")
-			continue
-		}
 
 		switch pilihan {
 
